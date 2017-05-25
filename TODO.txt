@@ -1,0 +1,28 @@
+Task 1      Due
+Task 2      Due
+
+Add/Remove/Sort/Edit
+
+
+TODO
+- capture information
+- parse input
+- sort by Due
+- sort by Name
+- implement GUI
+-- autocomplete with fizzy
+- Task Class
+- store data on close
+
+
+
+
+ata = [['a', 'b', 'c'], ['aaaaaaaaaa', 'b', 'c'], ['a', 'bbbbbbbbbb', 'c']]
+
+col_width = max(len(word) for row in data for word in row) + 2  # padding
+for row in data:
+    print "".join(word.ljust(col_width) for word in row)
+
+a            b            c            
+aaaaaaaaaa   b            c            
+a            bbbbbbbbbb   c   
