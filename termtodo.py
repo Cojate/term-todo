@@ -10,11 +10,18 @@ class Task:
 def getTask():
     # Ask user for new task
     task_name_request = input("Task: ")
+    if task_name_request == "q":
+        sys.exit(0)
     task_due_request = input("Due: ")
+    if task_due_request == 'q':
+        sys.exit(0)
+
     return Task(task_name_request, task_due_request)
 
-def printTask():
-    pass
+def printTasks(tasks):
+    col_width = max(len(word) for row in tasks for word in row) + 8 # padding
+    for row in tasks:
+        print("".join(word.ljust(col_width) for word in row))
 
 def onLoad():
     # load database
@@ -29,22 +36,16 @@ def onClose():
 
 def main():
     # Ask user for new task
-    task_list = []
+    task_list = [["task", "due"]]
     
     while True:
-        # clear terminal print task list
+        printTasks(task_list)
+        print('\n')
+
+        new_task = getTask()
+        task_list.append([new_task.task, new_task.due])
+        
         os.system('cls' if os.name == 'nt' else 'clear')
-        print(task_list)
-  
-
-        print("task \t due")
-        for item in task_list:
-            print(item.task, "\t", item.due)
-
-        task_list.append(getTask())
-
-        if task_list[-1].task == 'q' or task_list[-1].due == 'q':
-            sys.exit(0)
         
 
 if __name__ == "__main__":
