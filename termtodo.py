@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 
 class Task:
     """A class to store information about a task"""
@@ -30,7 +31,7 @@ def removeTask(tasks):
             if remove_number > index - 1:
                 continue
             break
-        except:
+        except Exception:
             pass
 
     del(tasks[remove_number + 1])
@@ -40,12 +41,15 @@ def removeTask(tasks):
 def printTasks(tasks):
     col_width = max(len(word) for row in tasks for word in row) + 8 # padding
     for row in tasks:
-        print("".join(word.ljust(col_width) for word in row))
+        print("".join(word.ljust(col_width) for word in row.values()))
 
 def onLoad():
     # load database
-    # TODO
-    pass
+    with open('test_data_2.txt', 'r') as f:
+        read_data = f.read()
+    f.close()
+    return json.loads(read_data)
+
 
 def onClose():
     # save data base
@@ -54,15 +58,15 @@ def onClose():
 
 
 def main():
-    # Ask user for new task
-    task_list = [["TASK", "DUE"]]
+
+    task_list = onLoad()
     
     while True:
         printTasks(task_list)
         print(task_list)
         print('\n')
 
-        user_input = input(">")
+        user_input = input("> ")
         if user_input == 'q':
             sys.exit(0)
         elif user_input == 'a':
