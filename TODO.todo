@@ -6,14 +6,20 @@ Add/Remove/Sort/Edit
 
 TODO
 ✔ capture information @done (5/25/2017, 11:06:42 AM)
-☐ parse input
+☐ Remove DUE requirement
+
+Parse Input:
+    ☐ Add (a)
+    ☐ Remove (r)
+    ☐ Edit (e)
+
 ☐ sort by Due
 ☐ sort by Name
 ☐ store data on close
 
 
 Implement GUI:
-☐ autocompolete with fuzzy
+    ☐ autocomplete with fuzzy
 
 
 

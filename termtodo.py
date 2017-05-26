@@ -22,7 +22,7 @@ def getTask():
 def removeTask(tasks):
     index = 0
     for item in tasks[1:]:
-        print(index, item[0])
+        print(index, item['task'])
         index += 1
 
     while True:
@@ -71,13 +71,11 @@ def main():
             sys.exit(0)
         elif user_input == 'a':
             new_task = getTask()
-            task_list.append([new_task.task, new_task.due])
+            task_list.append({'task': new_task.task, 'due': new_task.due})
         elif user_input == 'r':
             task_list = removeTask(task_list)
-                
-        
+      
         os.system('cls' if os.name == 'nt' else 'clear')
-        
 
 if __name__ == "__main__":
     main()
